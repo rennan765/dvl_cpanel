@@ -1,0 +1,1103 @@
+/* RESET */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.fontzero{
+	font-size: 0em;
+}
+.clear{
+	clear: both;
+}
+
+/* STRUCT */
+
+html, body{
+	
+	font-family: 'Lato', sans-serif;
+	background-color: #D3D3D3;
+}
+
+.container{
+	padding: 0 5%;
+}
+/* LOGIN SCREEN LANDSCAPE */
+
+@media (orientation: landscape){
+
+.loginBox{
+	width: 640px;
+	height: 480px;
+	background-color: #808080;
+	box-sizing: border-box;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.loginBox .formHeader{
+	width: 100%;
+	height: 150px;
+	box-sizing: border-box;
+}
+
+.loginBox .formHeader img{
+	height: 120px;
+	margin: 15px;
+	position: relative;
+	float: left;
+}
+
+.loginBox .formHeader legend{
+	width: 465px;
+	height: 150px;
+}
+
+.loginBox .formHeader legend p{
+	padding-top: 50px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	color:  #E1140B;
+}
+
+.loginBox .formFields{
+	width: 100%;
+	height: 270px;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+.loginBox .formFields input{
+	width: 400px;
+	height: 20px;
+	padding: 3px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: .8em;
+}
+
+.loginBox .formFields button{
+	width: 410px;
+	height: 25px;
+	padding: 3px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: .8em;
+	background-color: #FEEB23;
+}
+
+.loginBox .formFields button:hover{
+	background-color: #FFF053;
+}
+
+.loginBox .formFooter{
+	width: 100%;
+	height: 60px;
+}
+
+.loginBox .formFooter #wrongPass{
+	width: 50%;
+	height: 60px;
+	position: relative;
+	float: left;
+}
+
+.loginBox .formFooter #wrongPass p{
+	margin-left: 20px;
+	color: red;
+}
+
+.loginBox .formFooter #forgotPass{
+	width: 50%;
+	height: 60px;
+	margin-top: 45px;
+	position: relative;
+	float: left;
+	text-align: right;
+	font-size: .8em;
+	color: blue;
+}
+}
+
+/* CPANEL LANDSCAPE BEGIN */
+
+/*CPANEL LESS THAN 700px */
+
+@media (orientation: landscape) and (max-device-height: 749px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 120px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 20%;
+	height: 120px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 100px;
+	padding: 10px 0;
+}
+
+header h2{
+	width: 80%;
+	height: 70px;
+	padding: 40px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2.2em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 140px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 700px;
+	height: 2800px;	/* 700px EACH LINE */
+	display: block;
+	margin: 0 auto;
+	margin-top: 235px;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* ONE FUNCTION EACH LINE */
+	width: 490px;
+	height: 490px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 105px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 15em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 4em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 490px;
+	height: 490px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 105px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 6em;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 80px;
+	margin-top: 20px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 75px;
+	padding: 2.5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	width: 75%;
+	height: 20px;
+	padding-top: 25px;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.8em;
+	color: #5093D7;
+}
+}
+
+/*CPANEL 736 x 414 */
+
+@media (orientation: landscape) and (min-width: 670px) and (max-width: 759px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 120px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 20%;
+	height: 120px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 100px;
+	padding: 10px 0;
+}
+
+header h2{
+	width: 80%;
+	height: 70px;
+	padding: 25px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3.5em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 140px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 640px;
+	height: 520px;	/* 260px each line */
+	display: block;
+	margin: 0 auto;
+	margin-top: 150px;
+	margin-bottom: 40px;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* TWO FUNCTION EACH LINE */
+	width: 200px;
+	height: 200px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 30px 60px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 6em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.7em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 200px;
+	height: 200px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 30px 60px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 7em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 80px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 75px;
+	padding: 2.5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	width: 80%;
+	height: 20px;
+	padding-top: 16px;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2.5em;
+	color: #5093D7;
+}
+}
+
+/*CPANEL 800 x 600 */
+
+@media (orientation: landscape) and (min-device-width: 760px) and (max-device-width: 1020px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 15%;
+	height: 80px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 65px;
+	padding: 7.5px 0;
+}
+
+header h2{
+	width: 85%;
+	height: 40px;
+	padding: 20px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	font-size: 2em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 100px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 640px;
+	height: 350px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 145px;
+	overflow: auto;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* THREE FUNCTION EACH LINE */
+	width: 120px;
+	height: 120px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 27.5px 46.6px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 3.8em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 120px;
+	height: 120px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 27.5px 46.6px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 4em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.7em;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 30px;
+	margin-top: 45px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 26px;
+	padding: 2px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	height: 20px;
+	padding-top: 6px;
+	padding-left: 10px;
+	position: relative;
+	float: left;
+	font-size: 1em;
+	color: #5093D7;
+}
+}
+
+/* CPANEL 1024 x 768 */
+
+@media (orientation: landscape) and (min-width: 1021px) and (max-width: 1169px){
+/* HEADER */
+header{
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 15%;
+	height: 100px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 90px;
+	padding: 5px 0;
+}
+
+header h2{
+	width: 85%;
+	height: 48px;
+	padding: 26px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	font-size: 2.5em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 145px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 900px;
+	height: 480px;
+	display: block;
+	margin: 0 auto;
+	overflow: auto;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* FOUR FUNCTION EACH LINE */
+	width: 150px;
+	height: 150px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 45px 37.5px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 4.5em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 150px;
+	height: 150px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 45px 37.5px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 5.5em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.7em;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 40px;
+	margin-top: 45px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 35px;
+	padding: 2.5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	height: 23px;
+	padding-top: 9px;
+	padding-left: 10px;
+	position: relative;
+	float: left;
+	font-size: 1.2em;
+	color: #5093D7;
+	
+}
+}
+
+/* CPANEL 1366 x 768 */
+
+@media (orientation: landscape) and (min-width: 1170px) and (max-width: 1790px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 15%;
+	height: 100px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 90px;
+	padding: 5px 0;
+}
+
+header h2{
+	width: 85%;
+	height: 48px;
+	padding: 26px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	font-size: 2.5em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 145px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 1150px;
+	height: 480px;
+	display: block;
+	margin: 0 auto;
+	overflow: auto;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* FOUR FUNCTION EACH LINE */
+	width: 180px;
+	height: 180px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 30px 53.75px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 5em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.45em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 180px;
+	height: 180px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 30px 53.75px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 6em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2em;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 40px;
+	margin-top: 45px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 35px;
+	padding: 2.5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	height: 23px;
+	padding-top: 9px;
+	padding-left: 10px;
+	position: relative;
+	float: left;
+	font-size: 1.2em;
+	color: #5093D7;
+	
+}
+}
+
+/* CPANEL 1920 x 1080 */
+
+@media (orientation: landscape) and (min-width: 1791px) and (max-width: 4000px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 150px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 15%;
+	height: 150px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 135px;
+	padding: 7.5px 0;
+}
+
+header h2{
+	width: 85%;
+	height: 68px;
+	padding: 41px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	font-size: 3.5em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 195px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 1600px;
+	height: 760px;
+	display: block;
+	margin: 0 auto;
+	
+	overflow: auto;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* FIVE FUNCTION EACH LINE */
+	width: 220px;
+	height: 220px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 80px 50px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 58%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 7em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 42%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 220px;
+	height: 220px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 80px 50px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 65%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 9em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 35%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 65px;
+	margin-top: 45px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 60px;
+	padding: 2.5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	height: 23px;
+	padding-top: 15px;
+	padding-left: 10px;
+	position: relative;
+	float: left;
+	font-size: 2em;
+	color: #5093D7;
+	
+}
+}
+
+/* CPANEL LANDSCAPE END */

@@ -1,0 +1,190 @@
+/* PC AND TABLET */
+@media (min-device-height: 750px){
+
+.frame form legend{
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+	font-size: 2.3em;
+	font-weight: bold;
+	color: #E1140B;
+}
+
+.frame form .userList{
+	width: 100%;
+	height: 380px;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.frame form .user{
+	width: 500px;
+	height: 40px;
+	margin: 18px 50px;
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+}
+
+.frame form .user input{
+	width: 30px;
+	margin-top: 14px;
+	margin-left: 10px;
+	position: relative;
+	float: left;
+}
+
+.frame form .user p{
+	width: 420px;
+	position: relative;
+	float: left;
+	margin-top: 8px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;
+	color: black;
+}
+
+.frame form .user i{
+	width: 30px;
+	margin-top: 5px;
+	margin-left: 10px;
+	position: relative;
+	float: left;
+	font-size: 1.7em;
+}
+
+.frame form .user i.fa-check{
+	color: green;
+}
+
+.frame form .user i.fa-times{
+	color: red;
+}
+
+.frame form .formButtons{
+	width: 100%;
+	height: 113px;
+}
+
+.frame form .formButtons button{
+	width: 80px;
+	height: 80px;
+	padding: 3px;
+	position: relative;
+	float: left;
+	margin: 16.5px 59.6px 0 59.6px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: .9em;
+	background-color: #FEEB23;
+}
+
+.frame form button:hover{
+	background-color: #FFF053;
+}
+
+}
+
+/* PHONE */
+@media (max-device-height: 749px){
+
+.frame form legend{
+	height: 50px;
+	display: block;
+	margin:  0 auto;
+	text-decoration: none;
+	font-size: 3em;
+	font-weight: bold;
+	color: #E1140B;
+}
+
+.frame form .userList{
+	width: 100%;
+	height: 320px;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.frame form .user{
+	width: 500px;
+	height: 90px;
+	margin: 30px 50px;
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+}
+
+.frame form .user input{
+	width: 30px;
+	padding: 15px;
+	margin-top: 30px;
+	margin-left: 15px;
+	position: relative;
+	float: left;
+}
+
+.frame form .user p{
+	width: 395px;
+	position: relative;
+	float: left;
+	margin-top: 26px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.7em;
+	color: black;
+}
+
+.frame form .user i{
+	width: 50px;
+	margin-top: 20px;
+	
+	position: relative;
+	float: left;
+	font-size: 3em;
+}
+
+.frame form .user i.fa-check{
+	color: green;
+}
+
+.frame form .user i.fa-times{
+	color: red;
+}
+
+.frame form .formButtons{
+	width: 100%;
+	height: 163px;
+}
+
+.frame form .formButtons button{
+	width: 130px;
+	height: 130px;
+	padding: 3px;
+	position: relative;
+	float: left;
+	margin: 16.5px 34.6px 0 34.6px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6em;
+	background-color: #FEEB23;
+}
+
+.frame form button:hover{
+	background-color: #FFF053;
+}
+
+}

@@ -1,0 +1,71 @@
+/* PC AND TABLET */
+@media (min-device-height: 750px){
+
+.frame i{
+	width: 100%;
+	margin-top: 90px;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 10em;
+}
+
+.frame i.fa-check{
+	color: green;
+}
+
+.frame i.fa-times{
+	color: red;
+}
+
+.frame p{
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	color: #26ADE4;
+}
+
+}
+
+/* PHONE */
+@media (max-device-height: 749px){
+
+.frame i{
+	width: 100%;
+	margin-top: 40px;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 13.5em;
+}
+
+.frame i.fa-check{
+	color: green;
+}
+
+.frame i.fa-times{
+	color: red;
+}
+
+.frame p{
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3.8em;
+	font-weight: bold;
+	color: #26ADE4;
+}
+
+}

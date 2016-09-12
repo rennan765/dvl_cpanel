@@ -1,0 +1,472 @@
+/* RESET */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.fontzero{
+	font-size: 0em;
+}
+.clear{
+	clear: both;
+}
+
+/* STRUCT */
+
+html, body{
+	height: 100%;
+	font-family: 'Lato', sans-serif;
+	background-color: #D3D3D3;
+}
+
+.container{
+	padding: 0 5%;
+}
+
+/* LOGIN SCREEN PORTRAIT */
+
+@media (orientation: portrait){
+
+.loginBox{
+	width: 700px;
+	height: 880px;
+	background-color: #808080;
+	box-sizing: border-box;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.loginBox .formHeader{
+	width: 100%;
+	height: 250px;
+	box-sizing: border-box;
+}
+
+.loginBox .formHeader img{
+	height: 170px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.loginBox .formHeader legend{
+	width: 100%;
+	height: 80px;
+}
+
+.loginBox .formHeader legend p{
+	padding-top: 10px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3.5em;
+	font-weight: bold;
+	color:  #E1140B;
+}
+
+.loginBox .formFields{
+	width: 100%;
+	height: 500px;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+.loginBox .formFields input{
+	width: 650px;
+	height: 45px;
+	padding: 3px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom: 80px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.8em;
+	color: black;
+}
+
+.loginBox .formFields button{
+	width: 660px;
+	height: 48px;
+	padding: 3px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom: 80px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.8em;
+	background-color: #FEEB23;
+}
+
+.loginBox .formFields button:hover{
+	background-color: #FFF053;
+}
+
+.loginBox .formFooter{
+	width: 100%;
+	height: 120px;
+}
+
+.loginBox .formFooter #wrongPass{
+	width: 100%;
+	height: 60px;
+	position: relative;
+	float: left;
+}
+
+.loginBox .formFooter #wrongPass p{
+	text-decoration: none;
+	text-align: center;
+	font-size: 2.5em;
+	color: red;
+}
+
+.loginBox .formFooter #forgotPass{
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	position: relative;
+	float: left;
+	text-align: right;
+	font-size: 1.8em;
+	color: blue;
+
+}
+}
+
+/* CPANEL PORTRAIT BEGIN */
+
+/* TABLETS */
+
+@media (orientation: portrait) and (min-device-height: 750px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 190px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 20%;
+	height: 190px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 170px;
+	padding: 10px 0;
+}
+
+header h2{
+	width: 80%;
+	height: 48px;
+	padding: 53px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 4em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 100px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 900px;
+	height: 760px;	/* 380px EACH LINE */
+	display: block;
+	margin: 0 auto;
+	margin-top: 235px;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .displayPortrait{
+	width: 900px;
+	height: 380px;
+}
+
+.boxPanel .function{
+	width: 280px;
+	height: 280px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 50px 82.5px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 9em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 2.3em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 280px;
+	height: 280px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 50px 82.5px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 10em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 10%;
+	margin-top: 35px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 90px;
+	padding: 5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	padding-top: 17px;
+	width: 85%;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	color: #5093D7;
+}
+}
+
+/* PHONES */
+
+@media (orientation: portrait) and (max-device-height: 749px){
+/* HEADER */
+
+header{
+	width: 100%;
+	height: 190px;
+	position: absolute;
+	top: 0;
+	background-color: #C0C0C0;
+}
+
+header .imgHeader{
+	width: 20%;
+	height: 190px;
+	position: relative;
+	float: left;
+}
+
+header .imgHeader img{
+	height: 170px;
+	padding: 10px 0;
+}
+
+header h2{
+	width: 80%;
+	height: 48px;
+	padding: 53px 0;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 4em;
+	color: #5093D7;
+}
+
+/* MAIN */
+
+section{
+	width: 100%;
+	margin-top: 100px;
+	box-sizing: border-box;
+}
+
+.boxPanel{
+	width: 700px;
+	height: 2800px;	/* 700px EACH LINE */
+	display: block;
+	margin: 0 auto;
+	margin-top: 235px;
+	background-color: #C0C0C0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+}
+
+.boxPanel .function{	/* ONE FUNCTION EACH LINE */
+	width: 550px;
+	height: 550px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #5093D7;
+	margin: 75px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel .function:hover{
+	background-color: #72A3D4;
+}
+
+.boxPanel .function i{
+	width: 100%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 16em;
+	color: white;
+}
+
+.boxPanel .function p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 4em;
+	font-weight: bold;
+	color: white;
+}
+
+.boxPanel #signOut{
+	width: 550px;
+	height: 550px;
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	background-color: #E1140B;
+	margin: 75px;
+	position: relative;
+	float: left;
+}
+
+.boxPanel #signOut:hover{
+	background-color: #E83E36;
+}
+
+.boxPanel #signOut i{
+	width: 100%;
+	height: 70%;
+	margin-left: 10%;
+	position: relative;
+	text-decoration: none;
+	font-size: 19em;
+	color: white;
+}
+
+.boxPanel #signOut p{
+	width: 100%;
+	height: 30%;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	font-size: 6.5em;
+	font-weight: bold;
+	color: white;
+}
+
+/* FOOTER */
+
+footer{
+	width: 100%;
+	height: 10%;
+	margin-top: 35px;
+	position: relative;
+	bottom: 0;
+	background-color: #C0C0C0;
+}
+
+footer img{
+	height: 90px;
+	padding: 5px 0;
+	position: relative;
+	float: left;
+}
+
+footer p{
+	padding-top: 17px;
+	width: 85%;
+	position: relative;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	font-size: 3em;
+	color: #5093D7;
+}
+}
+
+/* CPANEL PORTRAIT END */

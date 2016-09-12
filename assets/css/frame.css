@@ -1,0 +1,26 @@
+/* RESET */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.fontzero{
+	font-size: 0em;
+}
+.clear{
+	clear: both;
+}
+
+/* STRUCT */
+
+html, body{
+	font-family: 'Lato', sans-serif;
+	background-color: #808080;
+}
+
+.frame{
+	width: 600px;
+	height: 533px;
+	box-sizing: border-box;
+	border: solid 1px black;
+}
