@@ -8,10 +8,12 @@ if (!empty($email)):    //IF FORM HAS SENT
     $user = UserDao::getUserByEmail($email);
     //IF THERE IS AN USER WITH THIS E-MAIL
     if(!empty($user)):
+        updateLog('forgotPass', $user, null, true);
         emailForgotPass($email);
     else:
         session_start();
         $_SESSION["sendEmail"] = 'noEmail';
+        updateLog('forgotPass', $user, null, true);
         header('Location: controlpanel_functions/result.php');
     endif;
 endif;

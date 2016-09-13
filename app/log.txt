@@ -1,0 +1,2 @@
+13-09-2016 01:19:32 - tentativa de login de r.rezende@devloopers.com.br efetuada com sucesso
+13-09-2016 01:19:51 - tentativa de logout efetuada com sucesso

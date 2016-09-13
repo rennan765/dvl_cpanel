@@ -14,12 +14,15 @@ if (!empty($pass) && !empty($rePass)): //FORM IS EMPTY?
         //TRY TO UPDATE
         if (UserDao::updateUserPassById($_SESSION["userId"], md5($pass))):
             $_SESSION["changePass"] = true;
+            updateLog('changePass',  UserDao::getUserById($_SESSION["userId"]) , null, true);
             header('Location: result.php');
         else:
             $_SESSION["changePass"] = false;
+            updateLog('changePass',  UserDao::getUserById($_SESSION["userId"]) , null, false);
             header('Location: result.php');
         endif;
     else:
+        updateLog('changePass',  UserDao::getUserById($_SESSION["userId"]) , null, false);
         $samePass = false;
     endif;
 endif;

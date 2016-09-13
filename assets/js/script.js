@@ -1,6 +1,6 @@
 function logOut() {
 	if (confirm("Gostaria realmente de efetuar o log-off?")) {
-		window.location.href = 'app/control/logOut.php';
+		window.location.href = 'app/control/controlLogOut.php';
 	}
 }
 

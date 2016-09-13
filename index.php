@@ -14,11 +14,14 @@ if (!empty($email) || !empty($pass)):
     //IF SUCCESS
     if (!empty($user)):
         if ($user->getActive()):
+            updateLog('login', $user, null, true);
             logIn($user);
         else:
+            updateLog('login', $user, null, false);
             $active = false;
         endif;
     else:
+        updateLog('login', $user, null, false);
         $success = false;
     endif;
 endif;

@@ -34,13 +34,16 @@ if (!empty(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)) || !empty(
             //TRY TO CREATE
             if (UserDao::createUser($newUser)):
                 $_SESSION["createUser"] = 'success';
+                updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, true);
                 header('Location: result.php');
             else:
                 $_SESSION["createUser"] = 'failure';
+                updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, false);
                 header('Location: result.php');
             endif;
         else:
             $_SESSION["createUser"] = 'alreadySign';
+            updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, false);
             header('Location: result.php');
         endif;
     endif;
