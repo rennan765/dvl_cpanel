@@ -103,7 +103,17 @@ function updateLog($operation, $userAction, $userUpdated, $success) {
     switch ($operation) {
         //LOGIN
         case 'login':
-            $message = "{$data->format('d-m-Y H:i:s')} - tentativa de login de {$userAction->getEmail()} {$success}\n";
+            //HAS AN USER BEEN PASSED BY PARAM?
+            if(!empty($userAction)):
+                //IS THIS USER ACTIVE?
+                if($userAction->getActive()):
+                    $message = "{$data->format('d-m-Y H:i:s')} - tentativa de login de {$userAction->getEmail()} {$success}\n";
+                else:
+                    $message = "{$data->format('d-m-Y H:i:s')} - tentativa de login de {$userAction->getEmail()} {$success}. Usuario inativo\n";
+                endif;
+            else:
+                $message = "{$data->format('d-m-Y H:i:s')} - tentativa de login {$success}. Nome de usuario ou senha incorretos ou inexistentes.\n";
+            endif;
             break;
         //LOGOUT
         case 'logout':
@@ -123,7 +133,7 @@ function updateLog($operation, $userAction, $userUpdated, $success) {
             break;
         //CHANGE PASS
         case 'changePass':
-            $message = "{$data->format('d-m-Y H:i:s')} - alteracao da senha do usuario {$userUpdated->getEmail()} {$success}\n";
+            $message = "{$data->format('d-m-Y H:i:s')} - alteracao da senha do usuario {$userAction->getEmail()} {$success}\n";
             break;
         //ACTIVATE USER
         case 'activateUser':

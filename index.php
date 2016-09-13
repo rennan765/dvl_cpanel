@@ -21,7 +21,7 @@ if (!empty($email) || !empty($pass)):
             $active = false;
         endif;
     else:
-        updateLog('login', $user, null, false);
+        updateLog('login', null, null, false);
         $success = false;
     endif;
 endif;
