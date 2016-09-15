@@ -2,7 +2,9 @@
 include '../class/User.class.php';
 include '../functions.php';
 
-sessionCheck();
+if(!sessionCheck()):
+    header('Location: ../../index.php');
+endif;
 
 switch(getPostAction('activateUser', 'resetPass', 'deleteUser')):
     case 'activateUser':

@@ -1,7 +1,9 @@
 <?php
 include '../app/functions.php';
 
-sessionCheck();
+if(!sessionCheck()):
+    header('Location: ../index.php');
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -110,19 +112,37 @@ sessionCheck();
                 if ($_SESSION["sendEmail"] == 'noEmail'):
                     echo "<i class='fa fa-times'></i><p>Este e-mail não está cadastrado neste painel de controle.</p>";
                     unset($_SESSION["sendEmail"]);
+                    unset($_SESSION['logged']);
                     session_destroy();
                 else:
                     if ($_SESSION["sendEmail"] == 'success'):
                         echo "<i class='fa fa-check'></i><p>Foi enviado um e-mail de recuperação de senha para o usuário.</p>";
                         unset($_SESSION["sendEmail"]);
+                        unset($_SESSION['logged']);
                         session_destroy();
                     else:
                         if ($_SESSION["sendEmail"] == 'failure'):
-                            echo "<i class='fa fa-times'></i><p>Erro ao recuperar a senha. Contate o administrador do sistema.</p>";
+                            echo "<i class='fa fa-times'></i><p>Erro ao enviar o e-mail. Contate o administrador do sistema.</p>";
                             unset($_SESSION["sendEmail"]);
+                            unset($_SESSION['logged']);
                             session_destroy();
                         endif;
                     endif;
+                endif;
+            endif;
+            
+            //CHANGE  FORGOTTEN PASSWORD
+            if (isset($_SESSION["changeForgottenPass"])):
+                if ($_SESSION["changeForgottenPass"]):
+                    echo "<i class='fa fa-check'></i><p>A senha foi alterada com sucesso. <a href='../index.php'>Clique Aqui</a> para efetuar o login.</p>";
+                    unset($_SESSION["changeForgottenPass"]);
+                    unset($_SESSION['logged']);
+                    session_destroy();
+                else:
+                    echo "<i class='fa fa-times'></i><p>Erro ao efetuar a alteração da senha. Contate o administrador do sistema.</p>";
+                    unset($_SESSION["changeForgottenPass"]);
+                    unset($_SESSION['logged']);
+                    session_destroy();
                 endif;
             endif;
             ?>

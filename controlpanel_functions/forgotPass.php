@@ -1,20 +1,23 @@
 <?php
 include '../app/class/User.class.php';
 include '../app/dao/UserDao.class.php';
+include '../app/functions.php';
 
-$email = filter_input(input_GET, 'email', FILTER_SANITIZE_STRING);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 
 if (!empty($email)):    //IF FORM HAS SENT
     $user = UserDao::getUserByEmail($email);
+    
     //IF THERE IS AN USER WITH THIS E-MAIL
-    if(!empty($user)):
+    if (!empty($user)):
         updateLog('forgotPass', $user, null, true);
-        emailForgotPass($email);
+        emailForgotPass($user->getEmail());
     else:
         session_start();
+        $_SESSION['logged'] = true;
         $_SESSION["sendEmail"] = 'noEmail';
         updateLog('forgotPass', $user, null, true);
-        header('Location: controlpanel_functions/result.php');
+        header('Location: result.php');
     endif;
 endif;
 ?>
@@ -31,13 +34,15 @@ endif;
     </head>
     <body>
         <div class="frame">
-            <form action="" method="GET">
+            <form action="forgotPass.php" method="POST">
                 <legend>Esqueceu sua senha?</legend>
                 <label for="email">
                     <input type="email" name="email" placeholder="Insira aqui o seu e-mail" required>
                 </label>
-                <button type="submit"><i class="fa fa-sign-in"></i> Enviar</button>
+                <button type="submit" onclick="sendEmailForgotPass()" id="sendEmailForgotPass"><i class="fa fa-sign-in"></i> Enviar</button>
             </form>
         </div>
+        
+        <script src="../assets/js/script.js"></script>
     </body>
 </html>

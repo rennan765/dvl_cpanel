@@ -3,7 +3,9 @@ include '../app/class/User.class.php';
 include '../app/dao/UserDao.class.php';
 include '../app/functions.php';
 
-sessionCheck();
+if(!sessionCheck()):
+    header('Location: ../index.php');
+endif;
 
 if (!isAdm()):
     header('Location: ../controlpanel.php');

@@ -1,7 +1,9 @@
 <?php
 include 'app/functions.php';
 
-sessionCheck();
+if(!sessionCheck()):
+    header('Location: index.php');
+endif;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

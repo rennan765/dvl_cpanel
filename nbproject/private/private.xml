@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Applications/MAMP/htdocs/dvl_cpanel/test.php</file>
+            <file>file:/Applications/MAMP/htdocs/dvl_cpanel/app/control/controlForgotPass.php</file>
+            <file>file:/Applications/MAMP/htdocs/dvl_cpanel/app/functions.php</file>
+            <file>file:/Applications/MAMP/htdocs/dvl_cpanel/controlpanel_functions/forgotPass.php</file>
+        </group>
     </open-files>
 </project-private>

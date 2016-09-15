@@ -51,7 +51,7 @@ abstract class UserDao {
     public static function getUserByEmail($email) {
         //USED IN FORGOTPASS.PHP
         $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
-        $query = "SELECT * FROM user WHERE user_email = {$email}";
+        $query = "SELECT * FROM user WHERE user_email = '{$email}'";
         $user = null;
         $result = $dbConn->query($query);
         //IF THERE IS A RESULT

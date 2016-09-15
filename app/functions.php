@@ -1,6 +1,8 @@
 <?php
 
 include '../dao/UserDao.class.php';
+include 'class/class.phpmailer.php';
+include 'class/class.smtp.php';
 
 //DATABASE FUNCTIONS BEGIN
 
@@ -35,8 +37,9 @@ function logIn($user) {
 function sessionCheck() {
     session_start();
     if (!$_SESSION['logged']):   //If user is not logged, then return to the index.php
-        session_cache_expire(10);
-        header('Location: ../index.php');
+        return false;
+    else:
+        return true;
     endif;
 }
 
@@ -53,18 +56,121 @@ function isAdm() {
 
 function emailForgotPass($email) {
     session_start();
-    $message = "";
+    //INITIATE HTML MESSAGE BEGIN
+    $message = "<!DOCTYPE html>
+<html lang='pt-BR' style='margin: 0;padding: 0;width: 700px;font-family: 'Lato', sans-serif;background-color: #D3D3D3;'>
+    <head style='margin: 0;padding: 0;'>
+        <meta charset='UTF-8' style='margin: 0;padding: 0;'>
+        <title style='margin: 0;padding: 0;'>E-mail</title>
+    </head>
+    <body style='margin: 0;padding: 0;width: 700px;font-family: 'Lato', sans-serif;background-color: #D3D3D3;'>
+        <header style='margin: 0;padding: 0;background-color: #C0C0C0;height: 150px;box-sizing: border-box;'>
+            <div class='container' style='margin: 0;padding: 0 5%;'>
+                <img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='margin: 10px 0;padding: 0;height: 130px;position: relative;float: left;'>
+                <h1 class='fontzero' style='margin: 0;padding: 0;font-size: 0em;'>E-mail de recuperação de senha</h1>
+                <h2 style='margin: 0;padding: 0;width: 470px;margin-top: 45px;position: relative;float: left;text-decoration: none;text-align: center;font-size: 2.7em;color: #E1140B;'>Painel de controle</h2>
+            </div>
+        </header>
+
+        <section style='margin: 0;padding: 0;'>
+            <div class='container' style='margin: 0;padding: 0 5%;'>
+                <div class='messageHeader' style='margin: 30px 0;padding: 0;'>
+                    <p style='margin: 0;padding: 0;text-decoration: none;text-align: left;font-size: 2.3em;font-weight: bold;color: #5093D7;'>Prezado usuário, </p>
+                </div>
+                <div class='messageContent' style='margin: 30px 0;padding: 0;'>
+                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Você está recebendo este e-mail porque foi efetuada uma solicitação de troca de senha deste endereço eletrônico.</p>
+                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Caso tenha solicitado a troca de senha, <a href='http://localhost/dvl_cpanel/controlpanel_functions/changeForgottenPass.php?email={$email}' style='margin: 0;padding: 0;'>Clique aqui</a> para efetuar a troca. Caso não tenha solicitado, favor desconsiderar este e-mail.</p>
+                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Caso esteja recebendo este e-mail de forma ininterrupta, favor contatar o administrador do sistema.</p>
+                </div>
+                <div class='messageFooter' style='margin: 30px 0;padding: 0;'>
+                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 2.3em;color: #5093D7;'>Atenciosamente,</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style='margin: 0;padding: 0;background-color: #C0C0C0;height: 80px;box-sizing: border-box;'>
+            <div class='container' style='margin: 0;padding: 0 5%;'>
+                <a href='http://www.devloopers.com.br' target='_blank' style='margin: 0;padding: 0;'><img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='margin: 10px 0;padding: 0;height: 60px;position: relative;float: left;'></a>
+                <p style='margin: 0;padding: 0;width: 380px;margin-top: 15px;margin-left: 100px;position: relative;float: left;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'><b style='margin: 0;padding: 0;width: 400px;font-weight: bold;color: #E1140B;'>Equipe DevLoopers</b> &copy 2016. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </body>
+</html>";
+    //INITIATE HTML MESSAGE END
+    
     if (sendEmail($email, $message)):
+        session_start();
+        $_SESSION['logged'] = true;
         $_SESSION["sendEmail"] = 'success';
-        header('Location: controlpanel_functions/result.php');
+        header('Location: result.php');
     else:
+        session_start();
+        $_SESSION['logged'] = true;
         $_SESSION["sendEmail"] = 'failure';
-        header('Location: controlpanel_functions/result.php');
+        header('Location: result.php');
     endif;
 }
 
 function sendEmail($email, $message) {
-    return true;
+    // Inicia a classe PHPMailer
+    $mail = new PHPMailer();
+    
+    // Define os dados do servidor e tipo de conexão
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    $mail->IsSMTP(); // Define que a mensagem será SMTP
+    $mail->Mailer = 'smtp';
+    $mail->Host = "srv168.prodns.com.br"; // Endereço do servidor SMTP
+    //$mail->Host = "devloopers.com.br"; // Endereço do servidor SMTP
+    //$mail->Host = 'localhost';  // Endereço do servidor SMTP
+    $mail->Port = 465;
+    //$mail->Port = 25;
+    //$mail->SMTPSecure = 'tls';
+    $mail->SMTPSecure = 'ssl';
+    //$mail->SMTPSecure = false;
+    $mail->SMTPAuth = true;
+    //$mail->SMTPAuth = false;
+    $mail->Username = 'noreply@devloopers.com.br'; // Usuário do servidor SMTP
+    $mail->Password = 'abcde12345'; // Senha do servidor SMTP
+    //$mail->SMTPDebug = 1;
+    
+    // Define o remetente
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    $mail->From = "noreply@devloopers.com.br"; // Seu e-mail
+    $mail->FromName = "Equipe DevLoopers"; // Seu nome
+    
+    // Define os destinatário(s)
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //$mail->AddAddress('fulano@dominio.com.br', 'Fulano da Silva');
+    $mail->AddAddress($email);
+    //$mail->AddCC('ciclano@site.net', 'Ciclano'); // Copia
+    //$mail->AddBCC('fulano@dominio.com.br', 'Fulano da Silva'); // Cópia Oculta
+    
+    // Define os dados técnicos da Mensagem
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    $mail->IsHTML(true); // Define que o e-mail será enviado como HTML
+    $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
+    
+    // Define a mensagem (Texto e Assunto)
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    $mail->Subject = "Recuperação de senha"; // Assunto da mensagem
+    $mail->Body = $message;
+    $mail->AltBody = "Para visualizar corretamente esta mensagem, utilize um visualizador de e-mail compatível com HTML.";
+
+    // Define os anexos (opcional)
+    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    //$mail->AddAttachment("c:/temp/documento.pdf", "novo_nome.pdf");  // Insere um anexo
+    // Envia o e-mail
+    $enviado = $mail->Send();
+    // Limpa os destinatários e os anexos
+    $mail->ClearAllRecipients();
+    $mail->ClearAttachments();
+    
+    // Exibe uma mensagem de resultado
+    if ($enviado):
+        return true;
+    else:
+        return false;
+    endif;
 }
 
 //SEND E-MAIL FUNCTIONS END
@@ -251,3 +357,4 @@ function deleteUser($idUser) {
 }
 
 //SHOW USER FUNCTIONS END
+

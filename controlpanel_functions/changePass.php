@@ -3,7 +3,9 @@ include '../app/class/User.class.php';
 include '../app/dao/UserDao.class.php';
 include '../app/functions.php';
 
-sessionCheck();
+if(!sessionCheck()):
+    header('Location: ../index.php');
+endif;
 $pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
 $rePass = filter_input(INPUT_POST, 'rePass', FILTER_SANITIZE_STRING);
 $samePass = true;
@@ -22,7 +24,6 @@ if (!empty($pass) && !empty($rePass)): //FORM IS EMPTY?
             header('Location: result.php');
         endif;
     else:
-        updateLog('changePass', UserDao::getUserById($_SESSION["userId"]), null, false);
         $samePass = false;
     endif;
 endif;
