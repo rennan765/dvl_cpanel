@@ -5,7 +5,7 @@ include './functions.php.';
 abstract class UserDao {
 
     public static function getUserByEmailPass($email, $pass) {
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "SELECT * FROM user WHERE user_email = '{$email}' AND user_pass = '{$pass}'";
         $user = null;
         $result = $dbConn->query($query);
@@ -27,7 +27,7 @@ abstract class UserDao {
     }
 
     public static function getUserById($id) {
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "SELECT * FROM user WHERE user_id = {$id}";
         $user = null;
         $result = $dbConn->query($query);
@@ -50,7 +50,7 @@ abstract class UserDao {
     
     public static function getUserByEmail($email) {
         //USED IN FORGOTPASS.PHP
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "SELECT * FROM user WHERE user_email = '{$email}'";
         $user = null;
         $result = $dbConn->query($query);
@@ -73,7 +73,7 @@ abstract class UserDao {
 
     public static function getUserList() {
         //USED FOR ALL. RETURN A LIST OF USERS.
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $listUser = [];
         $query = "SELECT * FROM user";
         $result = $dbConn->query($query);
@@ -99,7 +99,7 @@ abstract class UserDao {
     }
 
     public static function createUser($user) {
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "INSERT INTO user (user_email, user_pass, user_type, user_active) VALUES ('{$user->getEmail()}', '{$user->getPass()}', {$user->getType()}, 1)";
 
         //TRY TO UPDATE
@@ -121,7 +121,7 @@ abstract class UserDao {
         else:
             $user->setActive(0);
         endif;
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "UPDATE user SET user_email = '{$user->getEmail()}', user_pass = '{$user->getPass()}', user_type = {$user->getType()} , user_active = {$user->getActive()}  WHERE user_id = {$user->getId()} ";
 
         //TRY TO UPDATE
@@ -137,7 +137,7 @@ abstract class UserDao {
     }
 
     public static function updateUserPassById($id, $pass) {
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "UPDATE user SET user_pass = '{$pass}' WHERE user_id = {$id}";
 
         //TRY TO UPDATE
@@ -159,7 +159,7 @@ abstract class UserDao {
         else:
             $active = 0;
         endif;
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "UPDATE user SET user_active = {$active} WHERE user_id = {$id}";
 
         //TRY TO UPDATE
@@ -176,7 +176,7 @@ abstract class UserDao {
 
     public static function deleteUserById($idUser) {
         
-        $dbConn = databaseConnect('localhost', 'root', 'root', 'cpanel_users');
+        $dbConn = databaseConnect('localhost', 'client_side', 'jffhnuPTGBQxyHMG', 'cpanel_users');
         $query = "DELETE FROM user WHERE user_id = {$idUser};";
 
         //TRY TO UPDATE
