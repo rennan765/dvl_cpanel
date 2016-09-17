@@ -3,7 +3,20 @@ include 'app/class/User.class.php';
 include 'app/dao/UserDao.class.php';
 include 'app/functions.php';
 
-session_destroy();
+switch (sessionCheck()):
+    case 'userIsLogged':
+        header('Location: controlpanel.php');
+        break;
+    case 'userIsNotLogged':
+        //NO ACTION SET
+        break;
+    case 'sessionTimeOut':
+        //NO ACTION SET
+        break;
+    default:
+        //NO ACTION SET
+        break;
+endswitch;
 
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);

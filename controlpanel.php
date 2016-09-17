@@ -6,7 +6,7 @@ switch (sessionCheck()):
         //NO ACTION SET
         break;
     case 'userIsNotLogged':
-        header('Location: ../index.php');
+        header('Location: index.php');
         break;
     case 'sessionTimeOut':
         header('Location: result.php');

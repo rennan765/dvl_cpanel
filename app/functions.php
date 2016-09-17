@@ -288,17 +288,6 @@ function updateLog($operation, $userAction, $userUpdated, $success) {
 
 //SHOW USER FUNCTIONS BEGIN
 
-function getPostAction($name) {
-    $params = func_get_args();
-
-    foreach ($params as $name) {
-
-        if (!empty(filter_input(INPUT_POST, $name, FILTER_SANITIZE_STRING))) {
-            return $name;
-        }
-    }
-}
-
 function activateUser($idUser) {
     $user = UserDao::getUserById($idUser);
 

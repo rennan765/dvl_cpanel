@@ -148,6 +148,8 @@ session_start();
             if(isset($_SESSION["timeOut"])):
                 if($_SESSION["timeOut"]):
                     echo "<i class='fa fa-times'></i><p>Sua seção expirou. <br> <a href='../index.php'>Voltar à página inicial.</a></p>";
+                    unset($_SESSION["timeOut"]);
+                    unset($_SESSION['logged']);
                 endif;
             endif;
 ?>

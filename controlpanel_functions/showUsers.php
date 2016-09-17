@@ -38,14 +38,14 @@ endif;
     </head>
     <body>
         <div class="frame">
-            <form name="showUserForm" action="../app/control/controlShowUsers.php" method="POST">
+            <form name="showUserForm" action="../app/control/controlDeleteUser.php" id="showUsersForm" method="POST">
                 <legend>Lista de usuários</legend>
                 <div class="userList">
                     <?php
                     foreach ($listUser as $user):
                         ?>
                         <div class="user">
-                            <input type="radio" name="idUser" value="<?=$user->getId()?>" required>
+                            <input type="radio" name="idUser" value="<?=$user->getId()?>" required <?= ($user->getId() == 1) ? "checked" : ""?>>
                            <p><?=$user->getEmail()?></p>
                            <i class="<?=$user->getActive() ?  'fa fa-check' : 'fa fa-times'?>"></i>
                         </div>
@@ -54,9 +54,9 @@ endif;
                     ?>
                 </div>
                 <div class="formButtons">
-                    <button type="submit" name="activateUser" value="activateUser">Ativar Usuário</button>
-                    <button type="submit" name="resetPass" value="resetPass">Resetar Senha</button>
-                    <button type="submit" name="deleteUser" onclick="confirmDeleteUser()" value="deleteUser">Excluir Usuário</button>
+                    <button type="button" name="activateUser" value="activateUser" onclick="sendForm(1)">Ativar Usuário</button>
+                    <button type="button" name="resetPass" value="resetPass" onclick="sendForm(2)">Resetar Senha</button>
+                    <button type="button" name="deleteUser" value="deleteUser" onclick="confirmDeleteUser()">Excluir Usuário</button>
                 </div>
             </form>
         </div>

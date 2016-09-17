@@ -6,6 +6,22 @@ function logOut() {
 
 function confirmDeleteUser() {
     if (confirm("Gostaria realmente de excluir este usuário?")) {
-        document.getElementByName('deleteUser').submit();
+        document.getElementById('showUsersForm').submit();
     }
+}
+
+function sendForm(operation) {
+    switch (operation) {
+        case 1:
+            document.showUserForm.action = '../app/control/controlActivateUser.php';
+            break;
+        case 2:
+            document.showUserForm.action = '../app/control/controlResetPass.php';
+            break;
+        default:
+            //NO ACTION SET
+            break;
+    }
+
+    document.getElementById('showUsersForm').submit();
 }
