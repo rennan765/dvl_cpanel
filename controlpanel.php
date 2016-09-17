@@ -1,9 +1,20 @@
 <?php
 include 'app/functions.php';
 
-if(!sessionCheck()):
-    header('Location: index.php');
-endif;
+switch (sessionCheck()):
+    case 'userIsLogged':
+        //NO ACTION SET
+        break;
+    case 'userIsNotLogged':
+        header('Location: ../index.php');
+        break;
+    case 'sessionTimeOut':
+        header('Location: result.php');
+        break;
+    default:
+        //NO ACTION SET
+        break;
+endswitch;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

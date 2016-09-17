@@ -31,15 +31,31 @@ function logIn($user) {
     $_SESSION["userPass"] = $user->getPass();
     $_SESSION["userType"] = $user->getType();
     $_SESSION["userActive"] = $user->getActive();
+    //DEFINE TIME SESSION LIMIT
+    $_SESSION["startTime"] = time();
     header('Location: controlpanel.php');
 }
 
 function sessionCheck() {
     session_start();
-    if (!$_SESSION['logged']):   //If user is not logged, then return to the index.php
-        return false;
+
+    //CHECK IF THE USER IS LOGGED
+    if ($_SESSION['logged']):
+        $minutesInactive = 5;
+        $maxTimeInactive = $minutesInactive * 60;
+        $timeInactive = time() - $_SESSION["startTime"];
+        //CHECK TIME TO EXPIRE SESSION. MAX INACTIVE TIME IS X MINUTES
+        if (!($timeInactive >= $maxTimeInactive)):
+            $_SESSION["startTime"] = time();
+            return 'userIsLogged';
+        else:
+            //SESSION HAS EXPIRED
+            updateLog('timeOut', UserDao::getUserById($_SESSION["userId"]), null, true);
+            $_SESSION["timeOut"] = true;
+            return 'sessionTimeOut';
+        endif;   
     else:
-        return true;
+        return 'userIsNotLogged';
     endif;
 }
 
@@ -256,6 +272,9 @@ function updateLog($operation, $userAction, $userUpdated, $success) {
         //UPDATE USER
         case 'updateUser':
             $message = "{$data->format('d-m-Y H:i:s')} - atualizacao dos dados do usuario {$userUpdated->getEmail()} solicitada pelo usuario {$userAction->getEmail()} {$success}\n";
+            break;
+        case 'timeOut':
+            $message = "{$data->format('d-m-Y H:i:s')} - a sessao do usuario {$userAction->getEmail()} expirou\n";
             break;
         default:
             //NO ACTION SET

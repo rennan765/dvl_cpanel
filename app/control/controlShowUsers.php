@@ -3,7 +3,13 @@ include '../class/User.class.php';
 include '../functions.php';
 
 if(!sessionCheck()):
-    header('Location: ../../index.php');
+    //IF WAS BY SESSION TIME OUT
+    if($_SESSION["startTime"] == 'timeOut'):
+        header('Location: ../../controlpanel_functions/result.php');
+    else:
+        session_destroy();
+        header('Location: ../../index.php');
+    endif;
 endif;
 
 switch(getPostAction('activateUser', 'resetPass', 'deleteUser')):

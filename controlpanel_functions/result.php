@@ -1,9 +1,7 @@
 <?php
 include '../app/functions.php';
 
-if(!sessionCheck()):
-    header('Location: ../index.php');
-endif;
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -145,7 +143,14 @@ endif;
                     session_destroy();
                 endif;
             endif;
-            ?>
+            
+            //SESSION TIME OUT
+            if(isset($_SESSION["timeOut"])):
+                if($_SESSION["timeOut"]):
+                    echo "<i class='fa fa-times'></i><p>Sua seção expirou. <br> <a href='../index.php'>Voltar à página inicial.</a></p>";
+                endif;
+            endif;
+?>
         </div>
     </body>
 </html>

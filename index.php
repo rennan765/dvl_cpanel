@@ -3,6 +3,8 @@ include 'app/class/User.class.php';
 include 'app/dao/UserDao.class.php';
 include 'app/functions.php';
 
+session_destroy();
+
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
 $success = true;
