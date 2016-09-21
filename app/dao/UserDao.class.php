@@ -1,6 +1,6 @@
 <?php
-
-include './functions.php.';
+include_once '../functions.php';
+include_once '../class/User.class.php';
 
 abstract class UserDao {
 

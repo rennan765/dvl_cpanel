@@ -1,7 +1,6 @@
 <?php
-include '../app/class/User.class.php';
-include '../app/dao/UserDao.class.php';
-include '../app/functions.php';
+include_once '../app/functions.php';
+include_once '../app/dao/UserDao.class.php';
 
 switch (sessionCheck()):
     case 'userIsLogged':

@@ -1,7 +1,5 @@
 <?php
-
-include '../class/User.class.php';
-include '../functions.php';
+include_once '../functions.php';
 
 if(!sessionCheck()):
     //IF WAS BY SESSION TIME OUT

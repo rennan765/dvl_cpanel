@@ -1,8 +1,8 @@
 <?php
-
-include '../dao/UserDao.class.php';
-include 'class/class.phpmailer.php';
-include 'class/class.smtp.php';
+include_once 'class/User.class.php';
+include_once 'dao/UserDao.class.php';
+include_once 'class/class.phpmailer.php';
+include_once 'class/class.smtp.php';
 
 //DATABASE FUNCTIONS BEGIN
 
@@ -95,7 +95,7 @@ function emailForgotPass($email) {
                 </div>
                 <div class='messageContent' style='margin: 30px 0;padding: 0;'>
                     <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Você está recebendo este e-mail porque foi efetuada uma solicitação de troca de senha deste endereço eletrônico.</p>
-                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Caso tenha solicitado a troca de senha, <a href='http://localhost/dvl_cpanel/controlpanel_functions/changeForgottenPass.php?email={$email}' style='margin: 0;padding: 0;'>Clique aqui</a> para efetuar a troca. Caso não tenha solicitado, favor desconsiderar este e-mail.</p>
+                    <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Caso tenha solicitado a troca de senha, <a href='http://controlpanel.devloopers.com.br/controlpanel_functions/changeForgottenPass.php?email={$email}' style='margin: 0;padding: 0;'>Clique aqui</a> para efetuar a troca. Caso não tenha solicitado, favor desconsiderar este e-mail.</p>
                     <p style='margin: 10px 0;padding: 0;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'>Caso esteja recebendo este e-mail de forma ininterrupta, favor contatar o administrador do sistema.</p>
                 </div>
                 <div class='messageFooter' style='margin: 30px 0;padding: 0;'>

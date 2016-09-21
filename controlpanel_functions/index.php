@@ -1,7 +1,5 @@
 <?php
-
-include '../app/functions.php';
-include '../app/class/User.class.php';
+include_once '../app/functions.php';
 
 session_start();
 if (!sessionCheck()):   //If user is not logged, then return to the index.php

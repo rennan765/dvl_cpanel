@@ -1,6 +1,4 @@
 <?php
-include '../app/functions.php';
-
 session_start();
 ?>
 

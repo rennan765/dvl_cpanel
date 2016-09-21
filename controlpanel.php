@@ -1,5 +1,5 @@
 <?php
-include 'app/functions.php';
+include_once 'app/functions.php';
 
 switch (sessionCheck()):
     case 'userIsLogged':
