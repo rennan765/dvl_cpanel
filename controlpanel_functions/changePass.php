@@ -10,7 +10,7 @@ switch (sessionCheck()):
         header('Location: ../index.php');
         break;
     case 'sessionTimeOut':
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=timeOut');
         break;
     default:
         //NO ACTION SET
@@ -26,13 +26,11 @@ if (!empty($pass) && !empty($rePass)): //FORM IS EMPTY?
     if ($pass == $rePass):
         //TRY TO UPDATE
         if (UserDao::updateUserPassById($_SESSION["userId"], md5($pass))):
-            $_SESSION["changePass"] = true;
             updateLog('changePass', UserDao::getUserById($_SESSION["userId"]), null, true);
-            header('Location: result.php');
+            header('Location: result.php?resultMessage=changePass-success');
         else:
-            $_SESSION["changePass"] = false;
             updateLog('changePass', UserDao::getUserById($_SESSION["userId"]), null, false);
-            header('Location: result.php');
+            header('Location: result.php?resultMessage=changePass-failure');
         endif;
     else:
         $samePass = false;

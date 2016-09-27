@@ -11,7 +11,7 @@ switch (sessionCheck()):
         header('Location: ../index.php');
         break;
     case 'sessionTimeOut':
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=timeOut');
         break;
     default:
         //NO ACTION SET

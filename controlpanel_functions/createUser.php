@@ -11,7 +11,7 @@ switch (sessionCheck()):
         header('Location: ../index.php');
         break;
     case 'sessionTimeOut':
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=timeOut');
         break;
     default:
         //NO ACTION SET
@@ -46,18 +46,15 @@ if (!empty(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)) || !empty(
         if (!$sameEmail):
             //TRY TO CREATE
             if (UserDao::createUser($newUser)):
-                $_SESSION["createUser"] = 'success';
                 updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, true);
-                header('Location: result.php');
+                header('Location: result.php?resultMessage=createUser-success');
             else:
-                $_SESSION["createUser"] = 'failure';
                 updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, false);
-                header('Location: result.php');
+                header('Location: result.php?resultMessage=createUser-failure');
             endif;
         else:
-            $_SESSION["createUser"] = 'alreadySign';
             updateLog('createUser', UserDao::getUserById($_SESSION["userId"]), $newUser, false);
-            header('Location: result.php');
+            header('Location: result.php?resultMessage=createUser-alreadySigned');
         endif;
     endif;
 endif;

@@ -21,14 +21,12 @@ if(!empty($emailForgottenPass)):
             //TRY TO UPDATE
             if(UserDao::updateUserPassById($user->getId(), md5($pass))):
                 $_SESSION["logged"] = true;
-                $_SESSION["changeForgottenPass"] = true;
                 updateLog('changePass', $user, null, true);
-                header('Location: result.php');
+                header('Location: result.php?resultMessage=changeForgottenPass-success');
             else:
                 $_SESSION["logged"] = true;
-                $_SESSION["changeForgottenPass"] = false;
                 updateLog('changePass', $user, null, false);
-                header('Location: result.php');
+                header('Location: result.php?resultMessage=changeForgottenPass-failure');
             endif;
         else:
             $samePass = false;

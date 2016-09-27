@@ -15,9 +15,8 @@ if (!empty($email)):    //IF FORM HAS SENT
     else:
         session_start();
         $_SESSION['logged'] = true;
-        $_SESSION["sendEmail"] = 'noEmail';
         updateLog('forgotPass', $user, null, true);
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=sendEmail-noEmail');
     endif;
 endif;
 ?>

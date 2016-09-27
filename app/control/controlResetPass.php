@@ -1,14 +1,19 @@
 <?php
 include_once '../functions.php';
 
-if(!sessionCheck()):
-    //IF WAS BY SESSION TIME OUT
-    if($_SESSION["startTime"] == 'timeOut'):
-        header('Location: ../../controlpanel_functions/result.php');
-    else:
-        session_destroy();
+switch (sessionCheck()):
+    case 'userIsLogged':
+        //NO ACTION SET
+        break;
+    case 'userIsNotLogged':
         header('Location: ../../index.php');
-    endif;
-endif;
+        break;
+    case 'sessionTimeOut':
+        header('Location: ../../controlpanel_functions/result.php?resultMessage=timeOut');
+        break;
+    default:
+        //NO ACTION SET
+        break;
+endswitch;
 
 resetPass(filter_input(INPUT_POST, 'idUser', FILTER_SANITIZE_NUMBER_INT));

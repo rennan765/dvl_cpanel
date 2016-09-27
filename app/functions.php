@@ -82,7 +82,7 @@ function emailForgotPass($email) {
     <body style='margin: 0;padding: 0;width: 700px;font-family: 'Lato', sans-serif;background-color: #D3D3D3;'>
         <header style='margin: 0;padding: 0;background-color: #C0C0C0;height: 150px;box-sizing: border-box;'>
             <div class='container' style='margin: 0;padding: 0 5%;'>
-                <img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='margin: 10px 0;padding: 0;height: 130px;position: relative;float: left;'>
+                <img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='height: 130px;margin: 10px 0;padding: 0;position: relative;float: left;'>
                 <h1 class='fontzero' style='margin: 0;padding: 0;font-size: 0em;'>E-mail de recuperação de senha</h1>
                 <h2 style='margin: 0;padding: 0;width: 470px;margin-top: 45px;position: relative;float: left;text-decoration: none;text-align: center;font-size: 2.7em;color: #E1140B;'>Painel de controle</h2>
             </div>
@@ -106,7 +106,7 @@ function emailForgotPass($email) {
 
         <footer style='margin: 0;padding: 0;background-color: #C0C0C0;height: 80px;box-sizing: border-box;'>
             <div class='container' style='margin: 0;padding: 0 5%;'>
-                <a href='http://www.devloopers.com.br' target='_blank' style='margin: 0;padding: 0;'><img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='margin: 10px 0;padding: 0;height: 60px;position: relative;float: left;'></a>
+                <a href='http://www.devloopers.com.br' target='_blank' style='margin: 0;padding: 0;'><img src='http://devloopers.com.br/img/logo.png' alt='DevLoopers' style='height: 60px;margin: 10px 0;padding: 0;position: relative;float: left;'></a>
                 <p style='margin: 0;padding: 0;width: 380px;margin-top: 15px;margin-left: 100px;position: relative;float: left;text-decoration: none;text-align: left;font-size: 1.3em;color: #5093D7;'><b style='margin: 0;padding: 0;width: 400px;font-weight: bold;color: #E1140B;'>Equipe DevLoopers</b> &copy 2016. Todos os direitos reservados.</p>
             </div>
         </footer>
@@ -117,13 +117,11 @@ function emailForgotPass($email) {
     if (sendEmail($email, $message)):
         session_start();
         $_SESSION['logged'] = true;
-        $_SESSION["sendEmail"] = 'success';
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=sendEmail-success');
     else:
         session_start();
         $_SESSION['logged'] = true;
-        $_SESSION["sendEmail"] = 'failure';
-        header('Location: result.php');
+        header('Location: result.php?resultMessage=sendEmail-failure');
     endif;
 }
 
@@ -295,30 +293,25 @@ function activateUser($idUser) {
     if (isAdm() && UserDao::getUserById($idUser)->getType() != 0):
         if (!$user->getActive()):
             if (UserDao::updateUserActiveById($user->getId(), true)):
-                $_SESSION["activateUser"] = 'activated';
                 updateLog('activateUser', UserDao::getUserById($_SESSION["userId"]), $user, true);
-                header('Location: ../../controlpanel_functions/result.php');
+                header('Location: ../../controlpanel_functions/result.php?resultMessage=activateUser-activated');
             else:
-                $_SESSION["activateUser"] = 'failure';
                 updateLog('activateUser', UserDao::getUserById($_SESSION["userId"]), $user, false);
-                header('Location: ../../controlpanel_functions/result.php');
+                header('Location: ../../controlpanel_functions/result.php?resultMessage=activateUser-failure');
             endif;
         else:
             if (UserDao::updateUserActiveById($user->getId(), false)):
-                $_SESSION["activateUser"] = 'deactivated';
                 updateLog('activateUser', UserDao::getUserById($_SESSION["userId"]), $user, true);
-                header('Location: ../../controlpanel_functions/result.php');
+                header('Location: ../../controlpanel_functions/result.php?resultMessage=activateUser-deactivated');
             else:
-                $_SESSION["activateUser"] = 'failure';
                 updateLog('activateUser', UserDao::getUserById($_SESSION["userId"]), $user, false);
-                header('Location: ../../controlpanel_functions/result.php');
+                header('Location: ../../controlpanel_functions/result.php?resultMessage=activateUser-failure');
             endif;
 
         endif;
     else:
-        $_SESSION["activateUser"] = "noPermission";
         updateLog('activateUser', UserDao::getUserById($_SESSION["userId"]), $user, false);
-        header('Location: ../../controlpanel_functions/result.php');
+        header('Location: ../../controlpanel_functions/result.php?resultMessage=activateUser-noPermission');
     endif;
 }
 
@@ -328,18 +321,15 @@ function resetPass($idUser) {
     if (isAdm()):
         //TRY TO UPDATE
         if (UserDao::updateUserPassById($user->getId(), md5('0000'))):
-            $_SESSION["resetPass"] = "success";
             updateLog('resetPass', UserDao::getUserById($_SESSION["userId"]), $user, true);
-            header('Location: ../../controlpanel_functions/result.php');
+            header('Location: ../../controlpanel_functions/result.php?resultMessage=resetPass-success');
         else:
-            $_SESSION["resetPass"] = "failure";
             updateLog('resetPass', UserDao::getUserById($_SESSION["userId"]), $user, false);
-            header('Location: ../../controlpanel_functions/result.php');
+            header('Location: ../../controlpanel_functions/result.php?resultMessage=resetPass-failure');
         endif;
     else:
-        $_SESSION["resetPass"] = "noPermission";
         updateLog('resetPass', UserDao::getUserById($_SESSION["userId"]), $user, false);
-        header('Location: ../../controlpanel_functions/result.php');
+        header('Location: ../../controlpanel_functions/result.php?resultMessage=resetPass-noPermission');
     endif;
 }
 
@@ -349,18 +339,15 @@ function deleteUser($idUser) {
     if (isAdm() && ($user->getType() != 0)):
         //TRY TO DELETE
         if (UserDao::deleteUserById($idUser)):
-            $_SESSION["deleteUser"] = "success";
             updateLog('deleteUser', UserDao::getUserById($_SESSION["userId"]), $user, true);
-            header('Location: ../../controlpanel_functions/result.php');
+            header('Location: ../../controlpanel_functions/result.php?resultMessage=deleteUser-success');
         else:
-            $_SESSION["deleteUser"] = "failure";
             updateLog('deleteUser', UserDao::getUserById($_SESSION["userId"]), $user, false);
-            header('Location: ../../controlpanel_functions/result.php');
+            header('Location: ../../controlpanel_functions/result.php?resultMessage=deleteUser-failure');
         endif;
     else:
-        $_SESSION["deleteUser"] = "noPermission";
         updateLog('deleteUser', UserDao::getUserById($_SESSION["userId"]), $user, false);
-        header('Location: ../../controlpanel_functions/result.php');
+        header('Location: ../../controlpanel_functions/result.php?resultMessage=deleteUser-noPermission');
     endif;
 }
 

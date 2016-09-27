@@ -1,10 +1,17 @@
 <?php
 include_once '../app/functions.php';
 
-session_start();
-if (!sessionCheck()):   //If user is not logged, then return to the index.php
-    header('Location: ../index.php');
-else:
-    header('Location: ../controlpanel.php');
-endif;
-
+switch (sessionCheck()):
+    case 'userIsLogged':
+        header('Location: ../controlpanel.php');
+        break;
+    case 'userIsNotLogged':
+        header('Location: ../index.php');
+        break;
+    case 'sessionTimeOut':
+        header('Location: result.php?resultMessage=timeOut');
+        break;
+    default:
+        header('Location: ../index.php');
+        break;
+endswitch;
