@@ -6,7 +6,7 @@
 <h2>Websites using DevLoopers’ control panel</h2>
 <p>There is no website using DevLoopers’ control panel yet. </p>
 <h2>Functions in the DevLoopers’ control panel</p>
-<p>Each website using the control panel has its own customized function and it will be updated here by specific branches. <p>
+<p>Each website using the control panel has its own customized function and it will be updated here by specific branches. </p>
 <h3>Basic DevLoopers’ control panel functions</h3>
 <ul>
 <li>Log-in</li>
