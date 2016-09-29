@@ -8,7 +8,7 @@
 <h2>Functions in the DevLoopers’ control panel</h2>
 <p>Each website using the control panel has its own customized function and it will be updated here by specific branches. </p>
 <h3>Basic DevLoopers’ control panel functions</h3>
-<p>It can be found <a href="http://controlpanel.devloopers.com.br/">here</a>. <p>
+<p>It can be found <a href="http://controlpanel.devloopers.com.br/" target="_blank">here</a>. <p>
 <ul>
 <li>Log-in</li>
 <li>Log-out</li>
