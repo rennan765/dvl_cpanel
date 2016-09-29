@@ -5,7 +5,7 @@
 <p>The DevLoopers control panel has an user system, with different type of user, each type with different permissions in the control panel. Note: in the basic control panel, it has been implemented just two different of type of users: the administrator and the user; and there is no way to create an administrator user using the control panel. </p>
 <h2>Websites using DevLoopers’ control panel</h2>
 <p>There is no website using DevLoopers’ control panel yet. </p>
-<h2>Functions in the DevLoopers’ control panel</p>
+<h2>Functions in the DevLoopers’ control panel</h2>
 <p>Each website using the control panel has its own customized function and it will be updated here by specific branches. </p>
 <h3>Basic DevLoopers’ control panel functions</h3>
 <ul>
