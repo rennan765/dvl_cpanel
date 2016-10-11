@@ -286,6 +286,14 @@ function updateLog($operation, $userAction, $userUpdated, $success) {
 
 //SHOW USER FUNCTIONS BEGIN
 
+function isUserAdm($user){
+    if($user->getType() == 0):
+        return true;
+    else:
+        return false;
+    endif;
+}
+
 function activateUser($idUser) {
     $user = UserDao::getUserById($idUser);
 

@@ -46,7 +46,7 @@ endif;
                         ?>
                         <div class="user">
                             <input type="radio" name="idUser" value="<?=$user->getId()?>" required <?= ($user->getId() == 1) ? "checked" : ""?>>
-                           <p><?=$user->getEmail()?></p>
+                            <p <?=  isUserAdm($user) ? "style='color: red; font-weight: bold;'" : ""?>><?=$user->getEmail()?></p>
                            <i class="<?=$user->getActive() ?  'fa fa-check' : 'fa fa-times'?>"></i>
                         </div>
                         <?php
